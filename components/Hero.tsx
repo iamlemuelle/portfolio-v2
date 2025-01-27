@@ -1,28 +1,37 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
+    if (typeof window !== "undefined") {
+      const handleMouseMove = (e: MouseEvent) => {
+        setMousePosition({ x: e.clientX, y: e.clientY });
+      };
+
+      window.addEventListener("mousemove", handleMouseMove);
+      return () => {
+        window.removeEventListener("mousemove", handleMouseMove);
+      };
     }
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
+  }, []);
 
+  // Calculate rotation
   const calculateRotation = (x: number, y: number) => {
-    const centerX = window.innerWidth / 2
-    const centerY = window.innerHeight / 2
-    const rotateX = (y - centerY) * 0.01
-    const rotateY = (x - centerX) * 0.01
-    return { rotateX, rotateY }
-  }
+    if (typeof window !== "undefined") {
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      const rotateX = (y - centerY) * 0.01;
+      const rotateY = (x - centerX) * 0.01;
+      return { rotateX, rotateY };
+    }
+    return { rotateX: 0, rotateY: 0 }; // Default rotation in case of SSR
+  };
 
-  const rotation = calculateRotation(mousePosition.x, mousePosition.y)
+  const rotation = calculateRotation(mousePosition.x, mousePosition.y);
 
   return (
     <section className="h-screen relative overflow-hidden bg-gradient-to-b from-white to-gray-100">
@@ -40,7 +49,7 @@ export default function Hero() {
             transition={{
               duration: 10 + i * 2,
               repeat: Infinity,
-              ease: "linear"
+              ease: "linear",
             }}
             style={{
               width: `${200 + i * 100}px`,
@@ -54,11 +63,11 @@ export default function Hero() {
       </div>
 
       <div className="relative flex items-center justify-center h-full">
-        <motion.div 
+        <motion.div
           className="text-center"
           style={{
             perspective: 1000,
-            transformStyle: 'preserve-3d'
+            transformStyle: "preserve-3d",
           }}
         >
           <motion.div
@@ -69,15 +78,15 @@ export default function Hero() {
             transition={{ type: "spring", stiffness: 75, damping: 15 }}
             className="p-8 rounded-2xl backdrop-blur-sm bg-white/30 shadow-2xl"
           >
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               className="text-7xl font-bold text-gray-900 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600"
             >
-              Hi, I'm <span className="text-primary">Your Name</span>
+              Hi, I'm <span className="text-primary">Jean Lemuelle</span>
             </motion.h1>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -110,5 +119,5 @@ export default function Hero() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

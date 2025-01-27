@@ -1,19 +1,19 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 export default function About() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const stats = [
-    { label: 'Years Experience', value: '5+' },
-    { label: 'Projects Completed', value: '50+' },
-    { label: 'Satisfied Clients', value: '30+' },
-    { label: 'Technologies', value: '15+' }
-  ]
+    { label: "Years Experience", value: "1+" },
+    { label: "Projects Completed", value: "7+" },
+    { label: "Satisfied Clients", value: "10+" },
+    { label: "Tech Stacks", value: "6+" },
+  ];
 
   return (
     <section id="about" className="py-20 bg-white">
@@ -26,7 +26,7 @@ export default function About() {
         >
           About Me
         </motion.h2>
-        
+
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -34,14 +34,16 @@ export default function About() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <p className="text-xl text-gray-600 leading-relaxed mb-6">
-              I'm a passionate developer with expertise in building modern web applications.
-              With a strong foundation in both frontend and backend technologies,
-              I create efficient, scalable, and user-friendly solutions.
+              I'm a passionate developer with expertise in building modern web
+              applications. With a strong foundation in both frontend and
+              backend technologies, I create efficient, scalable, and
+              user-friendly solutions.
             </p>
             <p className="text-xl text-gray-600 leading-relaxed">
-              My journey in web development has led me to work with various technologies
-              and frameworks, always staying up-to-date with the latest industry trends
-              and best practices.
+              My journey in web development has led me to work with various
+              technologies and frameworks, always staying up-to-date with the
+              latest industry trends and best practices with my current company
+              Fullstack HQ.
             </p>
           </motion.div>
 
@@ -79,5 +81,5 @@ export default function About() {
         </div>
       </div>
     </section>
-  )
+  );
 }
