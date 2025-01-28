@@ -8,32 +8,35 @@ import { useRef, useState, useEffect } from "react";
 export default function Projects() {
   const projects = [
     {
-      title: "Project 1",
+      title: "Post with Proof",
       description:
         "A full-stack web application built with Next.js and MongoDB",
-      image: "/placeholder.jpg",
-      tags: ["Next.js", "MongoDB", "Tailwind CSS"],
-      link: "#",
+      image: "/AI.png",
+      tags: ["Next.js", "MongoDB", "Tailwind CSS", "Perplexity API"],
+      link: "https://postwithproof.netlify.app/",
     },
     {
-      title: "Project 2",
-      description: "Real-time chat application with WebSocket integration",
-      image: "/placeholder.jpg",
-      tags: ["React", "Node.js", "Socket.io"],
-      link: "#",
+      title: "Istory ni Lam-Ang",
+      description:
+        "A 2D RPG Game developed to play as Lam-Ang and learn his story",
+      image: "/Lam-Ang.png",
+      tags: ["Unity Engine", "Unity Relay", "Multiplay Hosting"],
+      link: "https://lemuu03.itch.io/biag-ni-lam-ang",
     },
     {
-      title: "Project 3",
-      description: "E-commerce platform with payment integration",
-      image: "/placeholder.jpg",
-      tags: ["Next.js", "Stripe", "PostgreSQL"],
-      link: "#",
+      title: "Taya!",
+      description:
+        "An android platformer game developed meant to serve as an educational game for users who knows nothing about traditional Filipino Games",
+      image: "/Taya.png",
+      tags: ["Unity Engine"],
+      link: "https://lemuu03.itch.io/taya",
     },
     {
-      title: "Project 3",
-      description: "E-commerce platform with payment integration",
-      image: "/placeholder.jpg",
-      tags: ["Next.js", "Stripe", "PostgreSQL"],
+      title: "AI Rankings",
+      description:
+        "A full-stack web application built with Next.js and MongoDB with OpenAI",
+      image: "/AI-rankings.png",
+      tags: ["Next.js", "MongoDB", "OpenAI"],
       link: "#",
     },
   ];

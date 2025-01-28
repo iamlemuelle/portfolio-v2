@@ -23,12 +23,12 @@ export default function Skills() {
       icon: "/laravel-original.svg",
     },
     {
-      name: "HTML5",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+      name: "Tailwind",
+      icon: "/tailwindcss-original.svg",
     },
     {
-      name: "CSS3",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+      name: "Unity Engine",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg",
     },
     {
       name: "PHP",
