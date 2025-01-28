@@ -1,10 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const router = useRouter();
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -18,6 +20,14 @@ export default function Hero() {
       };
     }
   }, []);
+
+  const goToProjects = () => {
+    router.push("#projects"); // Replace with the path to your projects page
+  };
+
+  const goToContact = () => {
+    router.push("#contact"); // Replace with the path to your contact page
+  };
 
   // Calculate rotation
   const calculateRotation = (x: number, y: number) => {
@@ -103,6 +113,7 @@ export default function Hero() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={goToProjects}
                 className="bg-primary text-white px-8 py-4 rounded-full hover:bg-blue-600 transition-colors text-lg font-medium shadow-lg"
               >
                 View My Work
@@ -110,6 +121,7 @@ export default function Hero() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={goToContact}
                 className="bg-white text-primary px-8 py-4 rounded-full hover:bg-gray-50 transition-colors text-lg font-medium shadow-lg border-2 border-primary"
               >
                 Contact Me
