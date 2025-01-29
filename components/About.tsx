@@ -125,13 +125,13 @@ export default function About() {
             </div>
             <p className="text-xl text-gray-300 leading-relaxed">
               I am a passionate developer with a strong focus on backend
-              technologies, specializing in building AI-driven solutions and
-              scalable systems.
+              technologies, specializing in building APIs and AI-driven
+              solutions and scalable systems.
             </p>
             <p className="text-xl text-gray-300 leading-relaxed">
               My journey in backend development has involved working with
-              cutting-edge technologies, including AI, machine learning, and
-              database optimization.
+              cutting-edge technologies, including AI APIs, payment gateways,
+              and API creation.
             </p>
             <motion.button
               whileHover={{ scale: 1.05, backgroundColor: "#3B82F6" }}
