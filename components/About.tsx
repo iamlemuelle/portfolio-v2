@@ -30,7 +30,12 @@ export default function About() {
   ];
 
   const handleDownloadResume = () => {
-    window.open("/path-to-your-resume.pdf", "_blank");
+    const link = document.createElement("a");
+    link.href = "/resume.pdf"; // Updated path
+    link.download = "Jean_Lemuelle_Bagay_Resume.pdf"; // Suggested filename
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -107,7 +112,7 @@ export default function About() {
                 ]}
                 repeat={Infinity}
                 speed={50}
-                wrapper="pre"
+                wrapper="div"
                 className="text-sm"
               />
             </div>

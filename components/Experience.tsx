@@ -94,7 +94,7 @@ export default function WorkExperience() {
               ]}
               repeat={Infinity}
               speed={50}
-              wrapper="pre"
+              wrapper="div"
               className="text-sm"
             />
           </div>

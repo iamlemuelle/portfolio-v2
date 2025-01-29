@@ -70,7 +70,7 @@ export default function Contact() {
               ]}
               repeat={Infinity}
               speed={50}
-              wrapper="pre"
+              wrapper="div"
               className="text-sm font-mono text-green-400 inline-block text-left"
             />
           </div>
