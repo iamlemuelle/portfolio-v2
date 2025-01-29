@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useSpring, useInView } from "framer-motion";
 import { useRef } from "react";
+import { TypeAnimation } from "react-type-animation";
 
 export default function WorkExperience() {
   const ref = useRef(null);
@@ -21,28 +22,58 @@ export default function WorkExperience() {
       position: "Web Developer, FullstackHQ",
       period: "Aug 2024 - Present",
       description:
-        "Currently, I am working as a web developer at FullstackHQ where I developed scalable APIs, integrated payment gateways like Stripe, and built custom AI solutions tailored to client needs. By leveraging MongoDB’s vector search and OpenAI API, I enhanced data analysis and decision-making. Additionally, I streamlined data pipelines to optimize workflows and improve client operations.",
+        "Currently, I am working as a web developer at FullstackHQ where I developed scalable APIs, integrated payment gateways like Stripe, and built custom AI solutions tailored to client needs.",
       align: "right",
     },
     {
       position: "Freelance Game Developer",
       period: "May 2024 - November 2024",
       description:
-        "I began freelancing right after college since it was my dream to be a game developer back then. I enjoyed creating games and developing my skills in game development. So why not earn money from what you enjoy.",
+        "I began freelancing right after college since it was my dream to be a game developer back then. I enjoyed creating games and developing my skills in game development.",
       align: "left",
     },
     {
       position: "Web Developer Intern, WAH",
       period: "Jan 2024 - Jun 2024",
       description:
-        "During my project development experience, I built a COOP system from scratch, beginning with a Figma prototype and advancing to full implementation. I contributed to backend development using my expertise in the Laravel framework, designing core functionalities, and aiding in the creation of the database architecture to ensure a robust and efficient system..",
+        "During my project development experience, I built a COOP system from scratch, beginning with a Figma prototype and advancing to full implementation.",
       align: "right",
     },
   ];
 
   return (
-    <section id="experience" className="py-20 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4" ref={ref}>
+    <section
+      id="experience"
+      className="py-20 bg-gray-900 relative overflow-hidden"
+    >
+      {/* Matrix-like background effect */}
+      <div className="absolute inset-0 overflow-hidden opacity-5">
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute text-green-500 text-opacity-20 font-mono text-sm"
+            initial={{ y: -100 }}
+            animate={{
+              y: [window.innerHeight, -100],
+            }}
+            transition={{
+              duration: 10 + Math.random() * 20,
+              repeat: Infinity,
+              ease: "linear",
+              delay: Math.random() * 5,
+            }}
+            style={{
+              left: `${i * 5}%`,
+            }}
+          >
+            {[...Array(20)].map((_, j) => (
+              <div key={j}>{Math.random().toString(36).substring(2, 3)}</div>
+            ))}
+          </motion.div>
+        ))}
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 relative" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -50,20 +81,23 @@ export default function WorkExperience() {
           transition={{ duration: 0.5 }}
           className="mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold">Work Experience:</h2>
-          <h3 className="text-3xl md:text-4xl font-bold mt-2">
-            Beyond Boundaries,{" "}
-            <span className="text-blue-500">Into Possibilities.</span>
-          </h3>
-          <p className="text-gray-600 mt-6 text-lg max-w-3xl">
-            My experience spans building a COOP system from scratch, integrating
-            scalable APIs, and developing custom AI solutions tailored to client
-            needs. From creating dynamic interfaces and secure payment systems
-            to leveraging AI technologies like MongoDB’s vector search and
-            OpenAI API, I’ve continuously refined my skills to deliver impactful
-            results. Each project reflects my dedication to learning and my
-            drive to create meaningful and efficient solutions.
-          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400">
+            Work Experience
+          </h2>
+          <div className="mt-4 font-mono text-green-400">
+            <TypeAnimation
+              sequence={[
+                "> for (const role of experience) {",
+                1000,
+                "> for (const role of experience) {\n  console.log(role.impact);",
+                1000,
+              ]}
+              repeat={Infinity}
+              speed={50}
+              wrapper="pre"
+              className="text-sm"
+            />
+          </div>
         </motion.div>
 
         <div className="relative">
@@ -131,18 +165,19 @@ export default function WorkExperience() {
                           }
                           p-6 rounded-lg
                           transition-all duration-300
-                          hover:bg-white hover:shadow-xl
-                          hover:shadow-blue-100/50
+                          bg-gray-800/50 backdrop-blur-md
+                          hover:shadow-xl
+                          hover:shadow-blue-500/10
                           cursor-pointer
-                          border border-transparent
-                          hover:border-blue-100
+                          border border-gray-700
+                          hover:border-blue-500/50
                         `}
                       >
                         <motion.h3
                           initial={{ opacity: 0 }}
                           animate={isInView ? { opacity: 1 } : {}}
                           transition={{ duration: 0.5, delay: 0.4 }}
-                          className="text-xl font-bold text-gray-900"
+                          className="text-xl font-bold text-gray-200"
                         >
                           {exp.position}
                         </motion.h3>
@@ -150,7 +185,7 @@ export default function WorkExperience() {
                           initial={{ opacity: 0 }}
                           animate={isInView ? { opacity: 1 } : {}}
                           transition={{ duration: 0.5, delay: 0.5 }}
-                          className="text-blue-500 font-semibold mt-1"
+                          className="text-blue-400 font-semibold mt-1"
                         >
                           {exp.period}
                         </motion.p>
@@ -158,7 +193,7 @@ export default function WorkExperience() {
                           initial={{ opacity: 0 }}
                           animate={isInView ? { opacity: 1 } : {}}
                           transition={{ duration: 0.5, delay: 0.6 }}
-                          className="text-gray-600 mt-3"
+                          className="text-gray-400 mt-3"
                         >
                           {exp.description}
                         </motion.p>
