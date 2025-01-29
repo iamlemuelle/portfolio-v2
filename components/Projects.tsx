@@ -7,6 +7,13 @@ import { useRef, useState, useEffect } from "react";
 import { TypeAnimation } from "react-type-animation";
 
 export default function Projects() {
+  const [windowHeight, setWindowHeight] = useState(1000); // Default value
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setWindowHeight(window.innerHeight);
+    }
+  }, []);
   const projects = [
     {
       title: "Post with Proof",
@@ -96,7 +103,7 @@ export default function Projects() {
             className="absolute text-green-500 text-opacity-20 font-mono text-sm"
             initial={{ y: -100 }}
             animate={{
-              y: [window.innerHeight, -100],
+              y: [windowHeight, -100],
             }}
             transition={{
               duration: 10 + Math.random() * 20,

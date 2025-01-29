@@ -11,6 +11,13 @@ export default function About() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [windowHeight, setWindowHeight] = useState(1000); // Default value
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setWindowHeight(window.innerHeight);
+    }
+  }, []);
 
   const images = ["/Lam-Ang.png", "/Taya.png", "/AI.png", "/1722528132972.jpg"];
 
@@ -48,7 +55,7 @@ export default function About() {
             className="absolute text-green-500 text-opacity-20 font-mono text-sm"
             initial={{ y: -100 }}
             animate={{
-              y: [window.innerHeight, -100],
+              y: [windowHeight, -100],
             }}
             transition={{
               duration: 10 + Math.random() * 20,

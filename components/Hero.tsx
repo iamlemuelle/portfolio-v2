@@ -8,6 +8,13 @@ import { TypeAnimation } from "react-type-animation";
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const router = useRouter();
+  const [windowHeight, setWindowHeight] = useState(1000); // Default value
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setWindowHeight(window.innerHeight);
+    }
+  }, []);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -53,7 +60,7 @@ export default function Hero() {
             className="absolute text-green-500 text-opacity-20 font-mono text-sm"
             initial={{ y: -100 }}
             animate={{
-              y: [window.innerHeight, -100],
+              y: [windowHeight, -100],
             }}
             transition={{
               duration: 10 + Math.random() * 20,

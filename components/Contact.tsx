@@ -1,10 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 
 export default function Contact() {
+  const [windowHeight, setWindowHeight] = useState(1000); // Default value
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setWindowHeight(window.innerHeight);
+    }
+  }, []);
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -29,7 +36,7 @@ export default function Contact() {
             className="absolute text-green-500 text-opacity-20 font-mono text-sm"
             initial={{ y: -100 }}
             animate={{
-              y: [window.innerHeight, -100],
+              y: [windowHeight, -100],
             }}
             transition={{
               duration: 10 + Math.random() * 20,

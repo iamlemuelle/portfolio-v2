@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useSpring, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 
 export default function WorkExperience() {
@@ -10,6 +10,13 @@ export default function WorkExperience() {
     target: ref,
     offset: ["start end", "end end"],
   });
+  const [windowHeight, setWindowHeight] = useState(1000); // Default value
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setWindowHeight(window.innerHeight);
+    }
+  }, []);
 
   const scaleY = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -54,7 +61,7 @@ export default function WorkExperience() {
             className="absolute text-green-500 text-opacity-20 font-mono text-sm"
             initial={{ y: -100 }}
             animate={{
-              y: [window.innerHeight, -100],
+              y: [windowHeight, -100],
             }}
             transition={{
               duration: 10 + Math.random() * 20,
