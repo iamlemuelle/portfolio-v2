@@ -19,7 +19,14 @@ export default function About() {
     }
   }, []);
 
-  const images = ["/Lam-Ang.png", "/Taya.png", "/AI.png", "/1722528132972.jpg"];
+  const images = [
+    "/ai-tutor.png",
+    "/ai-chatbot.png",
+    "/AI.png",
+    "/1722528132972.jpg",
+    "Lam-Ang.png",
+    "Taya.png",
+  ];
 
   useEffect(() => {
     const timer = setInterval(() => {
