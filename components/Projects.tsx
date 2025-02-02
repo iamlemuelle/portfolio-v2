@@ -16,6 +16,14 @@ export default function Projects() {
   }, []);
   const projects = [
     {
+      title: "Quizzzbee",
+      description:
+        "A web application that provides learning materials to students who wants to learn efficiently",
+      image: "/ai-tutor.png",
+      tags: ["Next.js", "MongoDB", "OpenAI", "Perplexity AI"],
+      link: "https://quizzzbee.netlify.app/",
+    },
+    {
       title: "Post with Proof",
       description:
         "A full-stack web application built with Next.js and MongoDB",
@@ -24,12 +32,12 @@ export default function Projects() {
       link: "https://postwithproof.netlify.app/",
     },
     {
-      title: "Istory ni Lam-Ang",
+      title: "AI Chatbot",
       description:
-        "A 2D RPG Game developed to play as Lam-Ang and learn his story",
-      image: "/Lam-Ang.png",
-      tags: ["Unity Engine", "Unity Relay", "Multiplay Hosting"],
-      link: "https://lemuu03.itch.io/biag-ni-lam-ang",
+        "A full-stack web application built with Next.js and MongoDB with OpenAI",
+      image: "/ai-chatbot.png",
+      tags: ["Next.js", "MongoDB", "OpenAI"],
+      link: "https://certivo.netlify.app/auth",
     },
     {
       title: "Taya!",
@@ -40,12 +48,12 @@ export default function Projects() {
       link: "https://lemuu03.itch.io/taya",
     },
     {
-      title: "AI Chatbot",
+      title: "Istory ni Lam-Ang",
       description:
-        "A full-stack web application built with Next.js and MongoDB with OpenAI",
-      image: "/ai-chatbot.png",
-      tags: ["Next.js", "MongoDB", "OpenAI"],
-      link: "https://certivo.netlify.app/auth",
+        "A 2D RPG Game developed to play as Lam-Ang and learn his story",
+      image: "/Lam-Ang.png",
+      tags: ["Unity Engine", "Unity Relay", "Multiplay Hosting"],
+      link: "https://lemuu03.itch.io/biag-ni-lam-ang",
     },
   ];
 
