@@ -40,12 +40,12 @@ export default function Projects() {
       link: "https://lemuu03.itch.io/taya",
     },
     {
-      title: "AI Rankings",
+      title: "AI Chatbot",
       description:
         "A full-stack web application built with Next.js and MongoDB with OpenAI",
-      image: "/AI-rankings.png",
+      image: "/ai-chatbot.png",
       tags: ["Next.js", "MongoDB", "OpenAI"],
-      link: "#",
+      link: "https://certivo.netlify.app/auth",
     },
   ];
 
